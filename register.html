@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>注册</title>
+		<meta http-equiv="Content-type"  content="charset=utf-8">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+        <script type="text/javascript">
+			$(document).ready(function(e) {
+    			$("#a").click(function(e) 
+				{
+        			if(document.form.username.value == "")
+					{
+						alert("用户名不能为空");
+						return false;
+					}
+					if(document.form.password.value != "" && document.form.repeat.value != "")
+					{
+						if(document.form.password.value != document.form.repeat.value)
+						{
+							alert("两次输入密码不一致");
+							return false;
+						}
+					}
+					else
+					{
+						alert("密码不能为空");
+						return false;
+					}
+					return true;
+    			});
+			});
+        </script>
+	</head>
+	<body>
+    <div data-role="page">
+    	<div data-role="header" data-position="fixed">
+        	<h1 align="center">注册约吧</h1>
+        </div>
+        <div data-role="content">
+        	<div id="form">
+            	<form action="register.php" method="post" name="form">
+                	<div data-role="fieldcontain" align="center">
+        				<label for="username" >用户名</label>
+        				<input type="text" name="username" id="username" placeholder="请输用户名"><br/>   
+                        <label for="password" >密码</label>
+        				<input type="password" name="password" id="password" placeholder="请输入密码"><br/>
+                        <label for="password" >确认密码</label>
+        				<input type="password" name="repeat" id="repeat" placeholder="请确认密码"><br/>  
+                        <br /><br />
+   							<button  id="a" type="submit" data-inline="true">注册</button>
+                            <button type="reset" data-inline="true">重置</button>
+     				</div>
+			</form>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+        	<h3>Web 15 组</h3>
+        </div>
+    </div>		
+	</body>
+</html>
